@@ -1,0 +1,572 @@
+<!doctype html>
+<html lang="pt-BR">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<meta name="robots" content="noindex, nofollow">
+<title>Alerta Brasil - Parceria 4º BPM e PRF</title>
+<meta name="description" content="Parceria entre o 4º BPM e a PRF: cadastro dos policiais no Alerta Brasil.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&family=Space+Grotesk:wght@500;700&display=swap" rel="stylesheet">
+<script src="https://accounts.google.com/gsi/client" async defer></script>
+<style>
+:root{--bg:#0A1424;--surface:#101E36;--surface2:#0E1D36;--line:#22365A;--line2:#3A527F;--text:#E8EEF8;--muted:#C3CFE2;--soft:#A9B8D0;--amber:#FFB300;--cyan:#38D5F5;--danger:#FF8A80;--ok:#6EE7A8}
+*{box-sizing:border-box}
+[hidden]{display:none!important}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--text);font-family:Inter,system-ui,sans-serif;line-height:1.55;-webkit-text-size-adjust:100%}
+h1,h2,h3{font-family:'Space Grotesk',sans-serif;margin:0}
+a{color:var(--cyan)}a:hover{color:#8BE8FB}
+a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{outline:2px solid var(--cyan);outline-offset:2px}
+.wrap{max-width:1180px;margin:0 auto;padding:0 32px}
+
+/* cabeçalho */
+.top .wrap{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:16px;padding-top:22px;padding-bottom:22px}
+.brand{display:flex;align-items:center;gap:14px}
+.brand img{height:54px;width:auto;display:block}
+.brand b{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:20px;letter-spacing:.08em;margin-left:6px}
+.top nav{display:flex;flex-wrap:wrap;gap:8px 24px;font-size:15px}
+.top nav a{color:var(--text);text-decoration:none;padding:6px 0}
+.top nav a.hl{color:var(--amber);font-weight:600}
+
+/* botões */
+.btn{display:inline-flex;align-items:center;justify-content:center;text-align:center;min-height:52px;padding:10px 26px;line-height:1.3;border-radius:10px;font-weight:600;font-size:17px;text-decoration:none;font-family:inherit;border:0;cursor:pointer}
+.btn-amber{background:var(--amber);color:#0A1424}.btn-amber:hover{background:#FFC233;color:#0A1424}
+.btn-line{border:1px solid #5B7399;color:var(--text);font-weight:500}.btn-line:hover{color:var(--text);border-color:var(--cyan)}
+.btn-sm{min-height:46px;font-size:15px;padding:8px 18px;border-radius:8px}
+.btn[disabled]{opacity:.6;cursor:wait}
+
+/* hero */
+.hero .wrap{display:flex;flex-wrap:wrap;align-items:center;gap:48px;padding-top:40px;padding-bottom:72px}
+.hero-text{flex:1 1 520px;min-width:0}
+.pill{display:inline-block;border:1px solid var(--amber);color:var(--amber);border-radius:999px;padding:6px 14px;font-size:13px;font-weight:600;letter-spacing:.06em}
+.hero h1{font-weight:700;font-size:60px;line-height:1.04;margin:22px 0 18px;letter-spacing:-.02em}
+.hero p{font-size:19px;color:var(--muted);margin:0 0 32px;max-width:560px}
+.hero-actions{display:flex;flex-wrap:wrap;gap:14px}
+.hero-art{flex:1 1 380px;min-width:0;display:flex;justify-content:center}
+.hero-art svg{width:100%;max-width:420px;height:auto}
+.sweep{transform-box:view-box;transform-origin:50% 50%;animation:spin 7s linear infinite}
+@keyframes spin{to{transform:rotate(360deg)}}
+@media (prefers-reduced-motion:reduce){.sweep{animation:none}html{scroll-behavior:auto}}
+
+/* seções */
+.band{background:var(--surface2);border-top:1px solid var(--line);border-bottom:1px solid var(--line)}
+.sec{padding:72px 0}
+.sec h2{font-size:34px;line-height:1.15}
+.lead{margin:8px 0 32px;color:var(--muted);font-size:17px}
+.parceria .wrap{display:flex;flex-wrap:wrap;gap:40px;align-items:flex-start;padding-top:56px;padding-bottom:56px}
+.parceria h2{flex:1 1 320px}
+.parceria p{flex:1 1 420px;font-size:17px;color:var(--muted);margin:0}
+.grid3{display:grid;grid-template-columns:repeat(3,minmax(0,1fr));gap:20px}
+.card{background:var(--surface);border:1px solid var(--line);border-radius:14px;padding:24px}
+.card svg{display:block}
+.card h3{font-size:20px;margin:16px 0 8px}
+.card p{margin:0;color:var(--muted);font-size:15px}
+
+/* passos */
+.grid5{display:grid;grid-template-columns:repeat(5,minmax(0,1fr));gap:20px}
+.step{border-top:3px solid var(--cyan);padding-top:18px}
+.step.a{border-color:var(--amber)}
+.step .n{font-family:'Space Grotesk',sans-serif;font-size:40px;font-weight:700;color:var(--cyan);line-height:1.1}
+.step.a .n{color:var(--amber)}
+.step h3{font-family:Inter,sans-serif;font-size:18px;margin:6px 0 8px}
+.step p{margin:0;color:var(--muted);font-size:15px}
+.step .btn{margin-top:14px}
+.alert{margin-top:32px;background:#2A2208;border:1px solid var(--amber);color:#FFE3A0;border-radius:10px;padding:14px 18px;font-size:15px}
+
+/* formulário */
+.form-grid{display:flex;flex-wrap:wrap;gap:48px;align-items:flex-start}
+.form-info{flex:1 1 360px;min-width:0}
+.form-info p{font-size:17px;color:var(--muted);margin:14px 0 22px}
+.note{background:var(--surface);border:1px solid var(--line);border-radius:12px;padding:18px 20px;font-size:15px;color:var(--muted)}
+.form-card{flex:1 1 460px;min-width:0;border-radius:18px;padding:32px}
+.userbar{display:flex;flex-wrap:wrap;align-items:center;justify-content:space-between;gap:12px;padding-bottom:20px;margin-bottom:20px;border-bottom:1px solid var(--line)}
+.userbar small{display:block;font-size:14px;color:var(--soft)}
+.userbar strong{font-size:16px;word-break:break-all}
+.badge{display:inline-block;border:1px solid var(--cyan);color:var(--cyan);border-radius:999px;padding:5px 12px;font-size:13px;font-weight:600}
+.badge.ok{border-color:var(--ok);color:var(--ok)}
+.badge.warn{border-color:var(--amber);color:var(--amber)}
+.linkbtn{background:none;border:0;color:var(--cyan);font:inherit;font-size:14px;text-decoration:underline;cursor:pointer;padding:8px 0;min-height:44px}
+.field{display:flex;flex-direction:column;gap:6px;margin-bottom:18px}
+.field label{font-size:14px;font-weight:600}
+.field input,.field select{height:50px;padding:0 14px;background:var(--bg);border:1px solid var(--line2);border-radius:10px;color:var(--text);font-size:16px;font-family:inherit;width:100%}
+.field input::placeholder{color:#8196B8}
+.field input[aria-invalid="true"],.field select[aria-invalid="true"]{border-color:var(--danger)}
+.err{min-height:0;color:var(--danger);font-size:13px}
+.hp{position:absolute;left:-9999px;width:1px;height:1px;overflow:hidden}
+.msg{margin-top:16px;border-radius:10px;padding:14px 16px;font-size:15px}
+.msg.ok{background:#0F2A22;border:1px solid var(--ok);color:#C9F7DE}
+.msg.bad{background:#2E1517;border:1px solid var(--danger);color:#FFD2CF}
+.msg.info{background:var(--bg);border:1px solid var(--line2);color:var(--muted)}
+.login-box p{margin:0 0 16px;color:var(--muted);font-size:16px}
+#g-btn{min-height:44px}
+.hint{font-size:13px;color:var(--soft);margin:14px 0 0}
+
+/* rodapé */
+.foot{border-top:1px solid var(--line)}
+.foot .wrap{display:flex;flex-wrap:wrap;gap:32px;justify-content:space-between;padding-top:36px;padding-bottom:48px}
+.foot h2{font-size:18px;color:var(--amber);margin-bottom:8px}
+.foot p{margin:0;font-size:15px;color:var(--muted);max-width:640px}
+.foot small{font-size:14px;color:var(--soft)}
+
+/* responsivo */
+@media (max-width:980px){
+  .grid3{grid-template-columns:repeat(2,minmax(0,1fr))}
+  .grid5{grid-template-columns:repeat(2,minmax(0,1fr))}
+}
+@media (max-width:640px){
+  .wrap{padding:0 20px}
+  .brand img{height:44px}
+  .brand b{font-size:17px;margin-left:2px}
+  .hero .wrap{padding-top:16px;padding-bottom:44px;gap:28px}
+  .hero h1{font-size:40px}
+  .hero p{font-size:17px}
+  .hero-actions .btn{width:100%}
+  .hero-art{display:none}
+  .sec{padding:48px 0}
+  .sec h2,.parceria h2{font-size:28px}
+  .parceria .wrap{padding-top:40px;padding-bottom:40px;gap:20px}
+  .grid3,.grid5{grid-template-columns:1fr}
+  .step .btn{width:100%}
+  .form-card{padding:22px 18px}
+}
+</style>
+</head>
+<body>
+
+<header class="top">
+<div class="wrap">
+<div class="brand">
+<img src="assets/brasao-4bpm.png" alt="Brasão do 4º BPM">
+<img src="assets/logo-prf.png" alt="Logo da Polícia Rodoviária Federal">
+<b>ALERTA BRASIL</b>
+</div>
+<nav aria-label="Principal">
+<a href="#parceria">Parceria</a>
+<a href="#vantagens">Vantagens</a>
+<a href="#cadastro">Como se cadastrar</a>
+<a href="#formulario" class="hl">Formulário</a>
+</nav>
+</div>
+</header>
+
+<main>
+<section class="hero">
+<div class="wrap">
+<div class="hero-text">
+<span class="pill">PARCERIA 4º BPM + PRF</span>
+<h1>Informação em tempo real para quem está na rua.</h1>
+<p>O Alerta Brasil reúne consulta de pessoas e veículos, alertas por localização e captura de placas pelo celular. Siga o passo a passo, confirme seu e-mail institucional e tenha o acesso aprovado.</p>
+<div class="hero-actions">
+<a class="btn btn-amber" href="https://alertabrasil.prf.gov.br/alertabrasil/" target="_blank" rel="noopener">Cadastrar no portal da PRF</a>
+<a class="btn btn-line" href="#formulario">Já me cadastrei: preencher formulário</a>
+</div>
+</div>
+<div class="hero-art">
+<svg viewBox="0 0 420 420" role="img" aria-label="Ilustração de radar com pontos de alerta">
+<circle cx="210" cy="210" r="200" fill="#0E1D36" stroke="#22365A" stroke-width="2"/>
+<circle cx="210" cy="210" r="150" fill="none" stroke="#22365A" stroke-width="2"/>
+<circle cx="210" cy="210" r="100" fill="none" stroke="#22365A" stroke-width="2"/>
+<circle cx="210" cy="210" r="50" fill="none" stroke="#22365A" stroke-width="2"/>
+<path d="M210 10V410M10 210H410" stroke="#22365A" stroke-width="2"/>
+<g class="sweep">
+<path d="M210 210L352 68" stroke="#38D5F5" stroke-width="3" stroke-linecap="round"/>
+<path d="M210 210L352 68A200 200 0 0 0 250 14Z" fill="#38D5F5" fill-opacity="0.14"/>
+</g>
+<circle cx="210" cy="210" r="7" fill="#38D5F5"/>
+<circle cx="300" cy="120" r="9" fill="#FFB300"/>
+<circle cx="300" cy="120" r="20" fill="none" stroke="#FFB300" stroke-width="2"/>
+<circle cx="120" cy="280" r="7" fill="#FFB300"/>
+<circle cx="150" cy="130" r="6" fill="#38D5F5"/>
+<circle cx="285" cy="300" r="6" fill="#38D5F5"/>
+</svg>
+</div>
+</div>
+</section>
+
+<section id="parceria" class="band parceria">
+<div class="wrap">
+<h2>Uma parceria para fortalecer o policiamento orientado por inteligência.</h2>
+<p>O 4º BPM e a Polícia Rodoviária Federal levam o Alerta Brasil às equipes operacionais. A inteligência analisa os dados e direciona o efetivo, para que a guarnição trabalhe com informação e não às cegas.</p>
+</div>
+</section>
+
+<section id="vantagens" class="sec">
+<div class="wrap">
+<h2>Vantagens para a guarnição</h2>
+<p class="lead">Informação certa na hora certa, para trabalhar direcionado e não às cegas.</p>
+<div class="grid3">
+<div class="card">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#38D5F5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M6 9a6 6 0 0 1 12 0c0 6 2 7 2 7H4s2-1 2-7"/><path d="M10 20a2 2 0 0 0 4 0"/></svg>
+<h3>Alertas direto no celular</h3>
+<p>Aviso de veículo roubado ou mandado de prisão na sua região, filtrado por cidade ou pelo equipamento da via.</p>
+</div>
+<div class="card">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFB300" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="11" cy="11" r="7"/><path d="M20 20l-4-4"/></svg>
+<h3>Consulta rápida e completa</h3>
+<p>Placa, CPF, chassi, motor ou nome e mãe, com dezenas de bases em uma só tela, no aplicativo ou na web.</p>
+</div>
+<div class="card">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#38D5F5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M4 8h3l2-3h6l2 3h3v11H4z"/><circle cx="12" cy="13" r="3.5"/></svg>
+<h3>Leitura por foto</h3>
+<p>Fotografe a placa ou o documento e o sistema extrai os dados e já faz a consulta.</p>
+</div>
+<div class="card">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFB300" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><path d="M12 3l7 3v5c0 5-3 8-7 10-4-2-7-5-7-10V6z"/></svg>
+<h3>Contra clones e adulterações</h3>
+<p>Consulte por motor e chassi, compare fotos e veja o histórico de passagem do veículo.</p>
+</div>
+<div class="card">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#38D5F5" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><circle cx="12" cy="12" r="8"/><circle cx="12" cy="12" r="3"/><path d="M12 2v4M12 18v4M2 12h4M18 12h4"/></svg>
+<h3>Radar no celular da viatura</h3>
+<p>O app de captura lê placas e amplia a cobertura além das câmeras fixas, inclusive no interior.</p>
+</div>
+<div class="card">
+<svg width="32" height="32" viewBox="0 0 24 24" fill="none" stroke="#FFB300" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round" aria-hidden="true"><rect x="6" y="4" width="12" height="17" rx="2"/><path d="M9 4h6v3H9zM9 12h6M9 16h6"/></svg>
+<h3>A experiência da rua vira inteligência</h3>
+<p>Registre abordagens com pessoas, veículo e local. Na próxima consulta, a equipe vê quem já foi abordado e com quem.</p>
+</div>
+</div>
+</div>
+</section>
+
+<section id="cadastro" class="band sec">
+<div class="wrap">
+<h2>Como se cadastrar</h2>
+<p class="lead">São cinco passos. O cadastro no portal da PRF, sozinho, não libera o acesso.</p>
+<div class="grid5">
+<div class="step a">
+<div class="n">1</div>
+<h3>Cadastre-se no Alerta Brasil</h3>
+<p>Crie seu cadastro no portal oficial da PRF.</p>
+<a class="btn btn-amber btn-sm" href="https://alertabrasil.prf.gov.br/alertabrasil/" target="_blank" rel="noopener">Abrir portal da PRF</a>
+</div>
+<div class="step a">
+<div class="n">2</div>
+<h3>Confirme seu e-mail institucional</h3>
+<p>Depois do cadastro, acesse o webmail institucional e confirme o e-mail.</p>
+<a class="btn btn-amber btn-sm" href="https://sogo.pe.gov.br/SOGo/" target="_blank" rel="noopener">Abrir webmail (SOGo)</a>
+</div>
+<div class="step">
+<div class="n">3</div>
+<h3>Volte a este site</h3>
+<p>Com o e-mail confirmado, retorne a esta página.</p>
+</div>
+<div class="step">
+<div class="n">4</div>
+<h3>Preencha o formulário</h3>
+<p>Informe matrícula, nome de guerra, nome completo, CPF e sua equipe.</p>
+</div>
+<div class="step">
+<div class="n">5</div>
+<h3>Aguarde a aprovação</h3>
+<p>Validamos seus dados e liberamos o acesso ao sistema.</p>
+</div>
+</div>
+<div class="alert"><strong>Atenção:</strong> sem o formulário, o cadastro na PRF não é aprovado.</div>
+</div>
+</section>
+
+<section id="formulario" class="sec">
+<div class="wrap form-grid">
+<div class="form-info">
+<h2>Formulário de aprovação</h2>
+<p>Entre com sua conta Google para enviar seus dados. Se precisar corrigir algo depois, entre com a mesma conta: o formulário abre já preenchido com o que você registrou, e você edita a resposta já enviada, sem criar outra.</p>
+<div class="note">Seus dados são usados somente para validar seu acesso ao Alerta Brasil.</div>
+</div>
+
+<div class="card form-card">
+<div id="cfg-warn" class="msg bad" hidden>Configuração pendente: preencha GOOGLE_CLIENT_ID e API_URL no arquivo index.html.</div>
+
+<div id="auth-out" class="login-box">
+<p>Entre com sua conta Google para preencher ou editar o formulário.</p>
+<div id="g-btn"></div>
+<p class="hint">Usamos sua conta apenas para identificar sua resposta.</p>
+</div>
+
+<div id="auth-in" hidden>
+<div class="userbar">
+<div><small>Conectado como</small><strong id="user-email"></strong><br><button type="button" id="signout" class="linkbtn">Sair desta conta</button></div>
+<span id="badge" class="badge">Novo envio</span>
+</div>
+</div>
+
+<form id="form" novalidate autocomplete="off" hidden>
+<div class="hp" aria-hidden="true"><label for="f-site">Não preencha este campo</label><input id="f-site" name="website" type="text" tabindex="-1" autocomplete="off"></div>
+
+<div class="field">
+<label for="f-mat">Matrícula</label>
+<input id="f-mat" name="matricula" type="text" inputmode="text" maxlength="15" placeholder="Sua matrícula" aria-describedby="e-mat" required>
+<span class="err" id="e-mat" aria-live="polite"></span>
+</div>
+<div class="field">
+<label for="f-guerra">Nome de guerra</label>
+<input id="f-guerra" name="guerra" type="text" maxlength="40" placeholder="Como você é identificado" aria-describedby="e-guerra" required>
+<span class="err" id="e-guerra" aria-live="polite"></span>
+</div>
+<div class="field">
+<label for="f-nome">Nome completo</label>
+<input id="f-nome" name="nome" type="text" maxlength="120" placeholder="Sem abreviações" aria-describedby="e-nome" required>
+<span class="err" id="e-nome" aria-live="polite"></span>
+</div>
+<div class="field">
+<label for="f-cpf">CPF</label>
+<input id="f-cpf" name="cpf" type="text" inputmode="numeric" maxlength="14" placeholder="000.000.000-00" aria-describedby="e-cpf" required>
+<span class="err" id="e-cpf" aria-live="polite"></span>
+</div>
+<div class="field">
+<label for="f-equipe">Equipe / guarnição</label>
+<select id="f-equipe" name="equipe" aria-describedby="e-equipe" required>
+<option value="">Selecione sua equipe</option>
+<option>Operação IMPACTO</option>
+<option>GT Alto do Moura</option>
+<option>GT KOBAN</option>
+<option>GT Maria da Penha</option>
+<option>GT Vassoural</option>
+<option>GTR 2º Distrito</option>
+<option>GTR 4º Distrito</option>
+<option>GT Salgado</option>
+<option>GE Tático – Sede do 4º BPM</option>
+<option>GT Operações – Sede do 4º BPM</option>
+<option>Central – PC 04</option>
+</select>
+<span class="err" id="e-equipe" aria-live="polite"></span>
+</div>
+<button type="submit" id="send" class="btn btn-amber" style="width:100%">Enviar para aprovação</button>
+</form>
+
+<div id="msg" class="msg info" role="status" aria-live="polite" hidden></div>
+</div>
+</div>
+</section>
+</main>
+
+<footer class="foot">
+<div class="wrap">
+<div>
+<h2>Uso responsável</h2>
+<p>O sistema é auditável e identifica cada usuário. Não tire prints nem compartilhe informações em grupos de WhatsApp ou redes sociais. O mau uso gera responsabilização administrativa, penal e cível.</p>
+</div>
+<small>4º BPM + Polícia Rodoviária Federal<br>Página informativa da parceria</small>
+</div>
+</footer>
+
+<script>
+/* ============ CONFIGURAÇÃO (preencher antes de publicar) ============ */
+var CONFIG = {
+  GOOGLE_CLIENT_ID: '650627934556-vcb0v6q690vug5f03p5u10fjb9vm0tgv.apps.googleusercontent.com',
+  API_URL: 'https://script.google.com/macros/s/AKfycbyFxD7QaeMBiQjzzTD2YY0V6CuJDJ8_KSva3SKZWnVVb7NjEMEhfqRLQLD2nEwLB-la/exec'
+};
+/* ===================================================================== */
+
+(function () {
+  'use strict';
+  var $ = function (id) { return document.getElementById(id); };
+  var idToken = null;
+  var profile = null;
+  var gisReady = false;
+
+  function configured() {
+    return CONFIG.GOOGLE_CLIENT_ID.indexOf('COLE_AQUI') < 0 && CONFIG.API_URL.indexOf('COLE_AQUI') < 0;
+  }
+
+  /* ---------- utilidades ---------- */
+  function onlyDigits(s) { return String(s || '').replace(/\D/g, ''); }
+  function cpfValido(v) {
+    var c = onlyDigits(v);
+    if (c.length !== 11 || /^(\d)\1{10}$/.test(c)) return false;
+    for (var t = 9; t < 11; t++) {
+      var s = 0;
+      for (var i = 0; i < t; i++) s += Number(c.charAt(i)) * (t + 1 - i);
+      var d = (s * 10) % 11 % 10;
+      if (d !== Number(c.charAt(t))) return false;
+    }
+    return true;
+  }
+  function formatCpf(v) {
+    var d = onlyDigits(v).slice(0, 11);
+    var o = d;
+    if (d.length > 9) o = d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6, 9) + '-' + d.slice(9);
+    else if (d.length > 6) o = d.slice(0, 3) + '.' + d.slice(3, 6) + '.' + d.slice(6);
+    else if (d.length > 3) o = d.slice(0, 3) + '.' + d.slice(3);
+    return o;
+  }
+  function parseJwt(t) {
+    var b = t.split('.')[1].replace(/-/g, '+').replace(/_/g, '/');
+    var j = decodeURIComponent(atob(b).split('').map(function (c) {
+      return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+    return JSON.parse(j);
+  }
+  var NAME_RE = /^[A-Za-zÀ-ÖØ-öø-ÿ][A-Za-zÀ-ÖØ-öø-ÿ'’.\- ]*$/;
+  var MAT_RE = /^[0-9A-Za-z][0-9A-Za-z.\-]{2,14}$/;
+
+  function setMsg(kind, text) {
+    var m = $('msg');
+    if (!text) { m.hidden = true; m.textContent = ''; return; }
+    m.className = 'msg ' + kind;
+    m.textContent = text;
+    m.hidden = false;
+  }
+  function setErr(id, text, input) {
+    $(id).textContent = text || '';
+    var el = $(input);
+    if (text) el.setAttribute('aria-invalid', 'true'); else el.removeAttribute('aria-invalid');
+  }
+
+  /* ---------- validação ---------- */
+  function validate() {
+    var ok = true, first = null;
+    function bad(eid, iid, text) { setErr(eid, text, iid); ok = false; if (!first) first = $(iid); }
+    function good(eid, iid) { setErr(eid, '', iid); }
+
+    var mat = $('f-mat').value.trim();
+    if (!MAT_RE.test(mat)) bad('e-mat', 'f-mat', 'Informe sua matrícula (3 a 15 caracteres, só letras, números, ponto ou hífen).'); else good('e-mat', 'f-mat');
+
+    var g = $('f-guerra').value.trim().replace(/\s+/g, ' ');
+    if (g.length < 2 || g.length > 40 || !NAME_RE.test(g)) bad('e-guerra', 'f-guerra', 'Informe seu nome de guerra (apenas letras).'); else good('e-guerra', 'f-guerra');
+
+    var n = $('f-nome').value.trim().replace(/\s+/g, ' ');
+    if (n.length < 5 || n.length > 120 || !NAME_RE.test(n) || n.indexOf(' ') < 0) bad('e-nome', 'f-nome', 'Informe seu nome completo, sem abreviações e sem números.'); else good('e-nome', 'f-nome');
+
+    if (!cpfValido($('f-cpf').value)) bad('e-cpf', 'f-cpf', 'CPF inválido. Confira os números.'); else good('e-cpf', 'f-cpf');
+
+    if (!$('f-equipe').value) bad('e-equipe', 'f-equipe', 'Selecione sua equipe.'); else good('e-equipe', 'f-equipe');
+
+    if (first) first.focus();
+    return ok;
+  }
+
+  /* ---------- API ---------- */
+  function api(action, data) {
+    return fetch(CONFIG.API_URL, {
+      method: 'POST',
+      headers: { 'Content-Type': 'text/plain;charset=utf-8' },
+      body: JSON.stringify({ action: action, token: idToken, data: data || {} })
+    }).then(function (r) {
+      if (!r.ok) throw new Error('Falha de comunicação (' + r.status + ').');
+      return r.json();
+    });
+  }
+
+  /* ---------- estado da tela ---------- */
+  function showSignedOut(message) {
+    idToken = null; profile = null;
+    $('auth-out').hidden = false;
+    $('auth-in').hidden = true;
+    $('form').hidden = true;
+    $('form').reset();
+    setMsg(message ? 'bad' : '', message || '');
+    renderGoogleButton();
+  }
+  function showSignedIn() {
+    $('auth-out').hidden = true;
+    $('auth-in').hidden = false;
+    $('user-email').textContent = profile.email;
+    $('form').hidden = false;
+  }
+  function setBadge(record) {
+    var b = $('badge');
+    if (!record) { b.className = 'badge'; b.textContent = 'Novo envio'; return; }
+    if (record.status === 'Aprovado') { b.className = 'badge ok'; b.textContent = 'Aprovado'; }
+    else if (record.status === 'Rejeitado') { b.className = 'badge warn'; b.textContent = 'Ajuste necessário'; }
+    else { b.className = 'badge'; b.textContent = 'Editando resposta anterior (em análise)'; }
+  }
+  function fill(record) {
+    $('f-mat').value = record.matricula || '';
+    $('f-guerra').value = record.guerra || '';
+    $('f-nome').value = record.nome || '';
+    $('f-cpf').value = formatCpf(record.cpf || '');
+    $('f-equipe').value = record.equipe || '';
+  }
+
+  /* ---------- login Google ---------- */
+  function renderGoogleButton() {
+    if (!gisReady || !window.google) return;
+    var el = $('g-btn');
+    el.innerHTML = '';
+    google.accounts.id.renderButton(el, {
+      type: 'standard', theme: 'filled_blue', size: 'large', text: 'signin_with',
+      shape: 'rectangular', locale: 'pt-BR', width: Math.min(300, Math.max(220, el.clientWidth || 300))
+    });
+  }
+  function onCredential(resp) {
+    idToken = resp.credential;
+    try { profile = parseJwt(idToken); } catch (e) { showSignedOut('Não foi possível ler o login. Tente novamente.'); return; }
+    showSignedIn();
+    setMsg('info', 'Carregando seus dados...');
+    api('get').then(function (r) {
+      if (!r.ok) { showSignedOut(r.error || 'Não foi possível carregar seus dados.'); return; }
+      if (r.record) {
+        fill(r.record);
+        setBadge(r.record);
+        if (r.record.status === 'Rejeitado' && r.record.obs) setMsg('bad', 'Ajuste solicitado: ' + r.record.obs);
+        else setMsg('info', 'Encontramos sua resposta anterior. Corrija o que precisar e envie novamente.');
+      } else {
+        setBadge(null);
+        setMsg('', '');
+      }
+    }).catch(function (e) {
+      showSignedOut((e && e.message) || 'Erro de conexão. Tente novamente.');
+    });
+  }
+  function initGoogle() {
+    if (gisReady || !window.google || !window.google.accounts) return;
+    if (!configured()) { $('cfg-warn').hidden = false; return; }
+    gisReady = true;
+    google.accounts.id.initialize({
+      client_id: CONFIG.GOOGLE_CLIENT_ID,
+      callback: onCredential,
+      auto_select: false,
+      cancel_on_tap_outside: true
+    });
+    renderGoogleButton();
+  }
+  window.onGoogleLibraryLoad = initGoogle;
+  window.addEventListener('load', function () {
+    if (!configured()) $('cfg-warn').hidden = false;
+    initGoogle();
+  });
+
+  /* ---------- eventos ---------- */
+  $('f-cpf').addEventListener('input', function () { this.value = formatCpf(this.value); });
+  $('signout').addEventListener('click', function () {
+    if (window.google && google.accounts) google.accounts.id.disableAutoSelect();
+    showSignedOut('');
+  });
+  $('form').addEventListener('submit', function (ev) {
+    ev.preventDefault();
+    if (!idToken) { showSignedOut('Sua sessão expirou. Entre novamente com o Google.'); return; }
+    if (!validate()) return;
+    var btn = $('send');
+    btn.disabled = true; btn.textContent = 'Enviando...';
+    setMsg('info', 'Enviando seus dados...');
+    api('save', {
+      website: $('f-site').value,
+      matricula: $('f-mat').value.trim(),
+      guerra: $('f-guerra').value.trim().replace(/\s+/g, ' '),
+      nome: $('f-nome').value.trim().replace(/\s+/g, ' '),
+      cpf: onlyDigits($('f-cpf').value),
+      equipe: $('f-equipe').value
+    }).then(function (r) {
+      if (!r.ok) {
+        var expired = /sess|token|entre novamente/i.test(r.error || '');
+        if (expired) { showSignedOut(r.error); return; }
+        setMsg('bad', r.error || 'Não foi possível salvar. Tente novamente.');
+        return;
+      }
+      if (r.record) { fill(r.record); setBadge(r.record); }
+      setMsg('ok', r.created
+        ? 'Resposta registrada! Agora é só aguardar a aprovação. Para corrigir algo, volte aqui e entre com a mesma conta Google.'
+        : 'Resposta atualizada com sucesso. Ela voltou para análise caso já tivesse sido avaliada.');
+    }).catch(function (e) {
+      setMsg('bad', (e && e.message) || 'Erro de conexão. Tente novamente.');
+    }).then(function () {
+      btn.disabled = false; btn.textContent = 'Enviar para aprovação';
+    });
+  });
+})();
+</script>
+</body>
+</html>
