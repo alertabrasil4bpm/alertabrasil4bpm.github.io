@@ -98,6 +98,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 .help summary{cursor:pointer;font-weight:600;color:var(--text)}
 .help ol{margin:10px 0 8px;padding-left:20px}
 .help p{margin:6px 0 0}
+.help .exprint{display:block;width:100%;max-width:220px;margin:10px auto;border:1px solid var(--line);border-radius:8px}
 .field input[type=file]{height:auto;padding:12px 14px}
 .fhint{color:var(--muted,#9DB0CF);font-size:13px}
 .err{min-height:0;color:var(--danger);font-size:13px}
@@ -264,7 +265,7 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <div class="step">
 <div class="n">4</div>
 <h3>Preencha o formulário</h3>
-<p>Informe matrícula, nome de guerra, nome completo, CPF e sua equipe. Anexe também um <strong>print da tela do portal da PRF que confirma o seu cadastro</strong>. É com ele que conferimos que você concluiu a etapa anterior.</p>
+<p>Informe matrícula, nome de guerra, nome completo, CPF e sua equipe. Anexe também um <strong>print da tela "Meus Acessos" do portal da PRF</strong>, que mostra SDS/PE e a etiqueta E-MAIL CONFIRMADO. É com ele que conferimos que você concluiu as etapas anteriores.</p>
 </div>
 <div class="step">
 <div class="n">5</div>
@@ -344,14 +345,17 @@ a:focus-visible,button:focus-visible,input:focus-visible,select:focus-visible{ou
 <div class="field">
 <label for="f-print">Print da confirmação do cadastro na PRF</label>
 <input id="f-print" name="print" type="file" accept="image/jpeg,image/png,image/webp" aria-describedby="e-print h-print">
-<span class="fhint" id="h-print">Tire um print da tela do portal Alerta Brasil que confirma o seu cadastro. Aceita JPG, PNG ou WebP.</span>
-<details class="help"><summary>Como tirar o print?</summary>
+<span class="fhint" id="h-print">Print da tela "Meus Acessos" com SDS/PE e E-MAIL CONFIRMADO. Aceita JPG, PNG ou WebP.</span>
+<details class="help" open><summary>Qual print enviar e como tirar</summary>
+<p><strong>Envie o print da tela "Meus Acessos" do portal da PRF, depois de confirmar o e-mail no SOGo.</strong> Nela precisa aparecer a opção <strong>SDS/PE</strong> e a etiqueta <strong>E-MAIL CONFIRMADO</strong>, como no exemplo abaixo. Print de outra tela, ou de antes de confirmar o e-mail, não será aceito.</p>
+<img class="exprint" src="assets/exemplo-print.jpg" alt="Exemplo de tela Meus Acessos com SDS/PE e a etiqueta E-MAIL CONFIRMADO" loading="lazy">
 <ol>
-<li>Depois de se cadastrar no portal da PRF, deixe aberta a tela que informa que o cadastro foi concluído.</li>
-<li>No celular, aperte juntos os botões de ligar e baixar volume. No computador, use a tecla Print Screen ou a Ferramenta de Captura.</li>
-<li>Clique em "Escolher arquivo" acima e selecione a imagem salva. Se estiver pelo celular, escolha a foto na galeria.</li>
+<li>Entre no portal da PRF e abra a tela "Meus Acessos".</li>
+<li>Confira se aparece SDS/PE e E-MAIL CONFIRMADO.</li>
+<li>No celular, aperte juntos os botões de ligar e baixar volume. No computador, use Print Screen ou a Ferramenta de Captura.</li>
+<li>Clique em "Escolher arquivo" acima e selecione a imagem salva.</li>
 </ol>
-<p>O print deve mostrar a confirmação do cadastro. Não envie foto de documentos. A imagem fica guardada só para a conferência do 4º BPM.</p>
+<p>Não envie foto de documentos. A imagem fica guardada só para a conferência do 4º BPM.</p>
 </details>
 <span class="err" id="e-print" aria-live="polite"></span>
 </div>
@@ -537,7 +541,7 @@ var CONFIG = {
     $('f-print').value = '';
     $('h-print').textContent = hasPrint
       ? 'Print já enviado. Escolha outro arquivo só se quiser substituí-lo.'
-      : 'Tire um print da tela do portal Alerta Brasil que confirma o seu cadastro. Aceita JPG, PNG ou WebP.';
+      : 'Print da tela "Meus Acessos" com SDS/PE e E-MAIL CONFIRMADO. Aceita JPG, PNG ou WebP.';
   }
 
   /* ---------- login Google ---------- */
